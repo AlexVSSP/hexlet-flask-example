@@ -1,0 +1,32 @@
+<form action="/users/sindex" method="get">
+    <h2>Login</h2>
+  <div>
+    <label>
+      Email
+      <input type="email" required name="email" value="{{ current_user.email }}">
+    </label>
+    </div>
+
+  <body>
+    {% if messages %}
+    <ul>
+      {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% if current_user %}
+
+    <a href="{{ url_for('session_new', id=user.id) }}">Edit</a>
+
+    <h1> Users </h1>
+    {% else %}
+    <form action="/users/sindex/session/new" method="post">
+        <input type="text" required name="name" value="">
+        <input type="submit" value="login">
+    </form>
+    {% endif %}
+  </body>
+</form>
+
+НЕ РАБОТАЕТ. НУЖНО РАЗБИРАТЬСЯ
